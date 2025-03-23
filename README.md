@@ -27,8 +27,9 @@
 
   ## Usage
 
+  - To compile code you must comment in the voltage lines {right before void setup()} and set the voltage to your batteries chemistry 
 TODO
-    
+    - complete this
   ## PICTURES:
 
 TODO
