@@ -9,6 +9,7 @@
 
   ## Goals:
     - Generator friendly with slow current ramp up & ramp down!!
+    - Allows generators to remain on ECO mode and prevents bogdown and current trips
     - Removed stuipd click encoder and menu libraries freeing up much memory!!
     - Setting are saved in EEprom memory and persist
     - Simple implimentation
@@ -29,6 +30,7 @@
 
     - To compile code you must comment in the voltage lines {right before void setup()} and set the voltage to your batteries chemistry
     - Max Voltage appears to be 57.3 with the R4850G2 becoming unstable above that value
+
 TODO
     - complete this
 
