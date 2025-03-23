@@ -42,9 +42,5 @@ TODO
 
 
   ## PINOUT
-
- TODO: NEEDS UPDATING encoder removed and 2 buttons added, rest is the same
-
-  ![316427349-3ad49603-3def-4ec2-9e40-f8289db90cfa](https://github.com/haklein/r4850g2_arduino/assets/4569994/0a200d5f-f5de-4887-b59d-5bd5942bd7a0)
-
-  !(https://github.com/bbobkins/r4850g2_arduino/blob/main/r4850g2_arduino.png)
+  See:
+  - r4850g2_arduino.png
