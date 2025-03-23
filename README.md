@@ -10,6 +10,7 @@
   ## Goals:
     - Generator friendly with slow current ramp up & ramp down!!
     - Allows generators to remain on ECO mode and prevents bogdown and current trips
+    - Still works well with grid power
     - Removed stuipd click encoder and menu libraries freeing up much memory!!
     - Setting are saved in EEprom memory and persist
     - Simple implimentation
