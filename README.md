@@ -8,7 +8,7 @@
    https://github.com/haklein/r4850g2_arduino
 
   ## Goals:
-    - Generator friendly with slow current ramp up & remp down!!
+    - Generator friendly with slow current ramp up & ramp down!!
     - Removed stuipd click encoder and menu libraries freeing up much memory!!
     - Setting are saved in EEprom memory and persist
     - Simple implimentation
@@ -27,10 +27,12 @@
 
   ## Usage
 
-  - To compile code you must comment in the voltage lines {right before void setup()} and set the voltage to your batteries chemistry
-  - Max Voltage appears to be 57.3 with the R4850G2 becoming unstable above that value
+    - To compile code you must comment in the voltage lines {right before void setup()} and set the voltage to your batteries chemistry
+    - Max Voltage appears to be 57.3 with the R4850G2 becoming unstable above that value
 TODO
     - complete this
+
+      
   ## PICTURES:
 
 TODO
@@ -38,6 +40,6 @@ TODO
 
   ## PINOUT
 
- TODO: NEEDS UPDATING encoder remoced and 2 buttons added, rest is the same
+ TODO: NEEDS UPDATING encoder removed and 2 buttons added, rest is the same
 
   ![316427349-3ad49603-3def-4ec2-9e40-f8289db90cfa](https://github.com/haklein/r4850g2_arduino/assets/4569994/0a200d5f-f5de-4887-b59d-5bd5942bd7a0)
