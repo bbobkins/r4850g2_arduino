@@ -1,4 +1,4 @@
-# Huawai R4850G2 rectifier canbus control
+# Huawai R4850G2 rectifier canbus control - Generator friendly
 
   ## Based on:
 
