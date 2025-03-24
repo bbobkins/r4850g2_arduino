@@ -12,11 +12,12 @@
     - Allows generators to remain on ECO mode and prevents bogdown and over current trips
     - Still works well with grid power
     - Removed stuipd click encoder and menu libraries freeing up much memory!!
-    - Setting are saved in EEprom memory and persist
-    - Simple implimentation
+    - Settings are saved in EEprom memory and persist
+    - CAN side of things mostly unchanged
+    - Simplified implimentation and use
 
   ## Todo:
-    - Add menu item to change voltage also, hard coded for now
+    - Add menu item to change voltage also, hard coded for now 
   
   ## Requirements 
    
@@ -24,7 +25,10 @@
    - libraries used:
       * Adafruit can library (forked from sandeepmistry/arduino-CAN):
         https://github.com/adafruit/arduino-CAN
-
+      * EEPROM.h - FlashStorage library by Various:
+        https://github.com/cmaglie/FlashStorage
+      * SSD1306Ascii.h - SSD1306Ascii by Bill Geriman
+         https://github.com/greiman/SSD1306Ascii
 
 
   ## Usage
