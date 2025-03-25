@@ -1,3 +1,11 @@
+/*  r4850g2 arduino - Huawai R4850G2 rectifier canbus control - Generator friendly
+//  Forked from
+//  https://github.com/haklein/r4850g2_arduino 
+//  Repository 
+//  https://github.com/bbobkins/r4850g2_arduino
+*/
+
+
 //CAN
 #include <CAN.h>
 
@@ -263,6 +271,7 @@ void doDisplay() {
       Serial.print(F("V ")); oled.print(F("V "));
       Serial.print(rp.input_current); oled.print(rp.input_current);
       Serial.println(F("A ")); oled.println(F("A "));
+      Serial.print(F("   ")); oled.print(F("   "));
       Serial.print(rp.input_power); oled.print(rp.input_power);
       Serial.print(F("W ")); oled.print(F("W "));
       Serial.print(rp.input_frequency); oled.print(rp.input_frequency);
@@ -273,6 +282,7 @@ void doDisplay() {
       Serial.print(F("V ")); oled.print(F("V "));
       Serial.print(rp.output_current); oled.print(rp.output_current);
       Serial.println(F("A ")); oled.println(F("A "));
+      Serial.print(F("   ")); oled.print(F("   "));
       Serial.print(rp.output_power); oled.print(rp.output_power);
       Serial.print(F("W ")); oled.print(F("W "));
       Serial.print(rp.efficiency); oled.print(rp.efficiency);
