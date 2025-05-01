@@ -100,9 +100,10 @@ float maxCurrent = 5.0f;
 
 //Voltage is hard coded for now, TODO: make a menu to all this to change
 //Set the voltage for your battery chemistry then, 
-//UNCOMMENT the lines below to allow the code to compile
-float voltage = //57.3f;          //Maximum appears to be 57.3, any higher and the unit becomes flakey
-float defaultVoltage = //57.0f;
+
+
+float maxVoltage = 50.0f;          //Maximum appears to be 57.3, any higher and the unit becomes flakey
+//float defaultVoltage = 57.0f;
 
 void setup() {
   // put your setup code here, to run once:
@@ -113,7 +114,7 @@ void setup() {
   Serial.begin(115200);
   while (!Serial);
 
-  //read setting from flash memory
+  //read CURRENT setting from flash memory
   EEPROM.get(0, maxCurrent);
 
   //Set default current in flash memory
@@ -122,6 +123,17 @@ void setup() {
     maxCurrent = 5.0f;
     EEPROM.put(0, maxCurrent);
   }
+
+  //read VOLTAGE setting from flash memory
+  EEPROM.get(4, maxVoltage);
+
+  //Set default current in flash memory
+  if(isnan(maxVoltage) ||  maxVoltage < 42.0f || maxVoltage > 57.3f)
+  {
+    maxVoltage = 50.0f;
+    EEPROM.put(4, maxVoltage);
+  }
+
 
 
 
@@ -158,10 +170,10 @@ void setup() {
   }
 
 
-  //persistant defaults
-  r4850_set(defaultVoltage, R48xx_DEFAULT_VOLTAGE);
+  //persistant defaults 
+  r4850_set(maxVoltage, R48xx_DEFAULT_VOLTAGE);
   delay(250);
-   r4850_set(10.0f,  R48xx_DEFAULT_CURRENT);
+   r4850_set(20.0f,  R48xx_DEFAULT_CURRENT);
   delay(250);
 
 
@@ -177,12 +189,10 @@ void setup() {
 
 }
 
-
+bool doVoltageInterface = false;
 
 
 void loop() {
-
-
 
   if(digitalRead(BUTTON_PIN_UP) == 0 || digitalRead(BUTTON_PIN_DOWN) == 0)
   {
@@ -191,22 +201,21 @@ void loop() {
   } 
   else
   {
-    doDisplay();
-    delay(5000);  //5sec
 
-    // put your main code here, to run repeatedly:
-    //r4850_set(Current, R48xx_CURRENT);
-    //delay(250);
-
-    //r4850_set(58.3f, R48xx_OV_PROTECTION);
-    //delay(250);
 
     if(Current < maxCurrent && status == startup)
-    {    
-      r4850_set(voltage, R48xx_VOLTAGE); //57.3 max?
+    { 
+      r4850_set(0.0f, R48xx_CURRENT); //Safly set current to 0 first
       delay(250);
+
+      r4850_set(maxVoltage, R48xx_VOLTAGE); //57.3 max?
+      delay(250);
+
+      Serial.println("set Voltage");
     }
 
+    doDisplay();
+    delay(2000);  //2sec
 
     if(Current < maxCurrent && status == rampUp)
     {
@@ -237,7 +246,7 @@ void loop() {
 
 
 void doDisplay() {
-
+  doVoltageInterface = false;
 
 
   if(r4850_request_data()) {
@@ -297,29 +306,71 @@ void doDisplay() {
 
 }
 
+
+
+
 void doInterface() {
 
-  Serial.print(" maxCurrent: ");
-  Serial.println(maxCurrent);
 
-  if(digitalRead(BUTTON_PIN_DOWN) == 0)
+  if(digitalRead(BUTTON_PIN_DOWN) == 0 && digitalRead(BUTTON_PIN_UP) == 0)
   {
-    maxCurrent = maxCurrent - 1;
-    if(maxCurrent < 0) maxCurrent = 0;
+    doVoltageInterface = true;
+    Serial.print(" XXXXX ");
   }
 
-  if(digitalRead(BUTTON_PIN_UP) == 0){
-      maxCurrent = maxCurrent + 1;
-      if(maxCurrent > 55) maxCurrent = 55;
+  if(doVoltageInterface)
+  {
+    if(digitalRead(BUTTON_PIN_DOWN) == 0 )
+    {
+      maxVoltage = maxVoltage - 0.1f;
+      if(maxVoltage < 42.0f) maxVoltage = 42.0f;
+    }
+
+    if(digitalRead(BUTTON_PIN_UP) == 0)
+    {
+        maxVoltage = maxVoltage + 0.1f;
+        if(maxVoltage > 57.3f) maxVoltage = 57.3f; //57.3 max?
+    }
+    oled.clear();
+    oled.println("Max Voltage: ");   
+    oled.setCursor(40,30);     
+    oled.print(maxVoltage);      
+    oled.println("V");
+    Serial.print(" maxVoltage: ");
+    Serial.println(maxVoltage);
+
+    //Write the setting to the EEPROM for next startup
+    EEPROM.put(4, maxVoltage);
+    
+  }
+  else {
+
+
+    if(digitalRead(BUTTON_PIN_DOWN) == 0 )
+    {
+      maxCurrent = maxCurrent - 1.0f;
+      if(maxCurrent < 0) maxCurrent = 0;
+    }
+
+    if(digitalRead(BUTTON_PIN_UP) == 0)
+    {
+        maxCurrent = maxCurrent + 1.0f;
+        if(maxCurrent > 55) maxCurrent = 55;
+    }
+    oled.clear(); 
+    oled.println("Max Current: ");     
+    oled.setCursor(40,30);     
+    oled.print(maxCurrent);      
+    oled.println("A");
+    Serial.print(" maxCurrent: ");
+    Serial.println(maxCurrent);
+
+    //Write the setting to the EEPROM for next startup
+    EEPROM.put(0, maxCurrent);
+
   }
 
-  oled.clear();   
-  oled.setCursor(40,30);     
-  oled.print(maxCurrent);      
-  oled.println("A");
 
-  //Write the setting to the EEPROM for next startup
-  EEPROM.put(0, maxCurrent);
 }
 
 
