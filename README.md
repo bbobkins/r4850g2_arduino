@@ -29,7 +29,15 @@
         https://github.com/cmaglie/FlashStorage
       * SSD1306Ascii.h - SSD1306Ascii by Bill Geriman
          https://github.com/greiman/SSD1306Ascii
-
+  ## Parts List:
+    
+    -1x Compatible Arduino Nano V3 16Mhz With Bootloader
+    -1x MCP2515 CAN Controller Bus Module TJA1050 Receiver SPI for Arduino
+    -1x 2.54mm Jumper for Pin Header/Circuit Board 
+    -1x OLED Display 0.96" 128x64 I2C IIC SSD1306 Arduino 
+    -1x Large Breadboard Layout Prototyping Board (Jaycar HP9572)
+    -1x Green Snap Action Keyboard Switch - PCB Mount (Jaycar SP0724)
+    -1x Red Snap Action Keyboard Switch - PCB Mount (Jaycar SP0720)
 
   ## Usage
 
