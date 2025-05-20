@@ -50,9 +50,9 @@ TODO
 
       
   ## PICTURES:
-    https://github.com/bbobkins/r4850g2_arduino/blob/main/r4850g2_arduino.png
+    TODO
 
 
   ## PINOUT
   See:
-  - r4850g2_arduino.png
+  -[r4850g2_arduino.png](https://github.com/bbobkins/r4850g2_arduino/blob/main/r4850g2_arduino.png)
