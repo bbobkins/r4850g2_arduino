@@ -38,6 +38,7 @@
     -1x Large Breadboard Layout Prototyping Board (Jaycar HP9572)
     -1x Green Snap Action Keyboard Switch - PCB Mount (Jaycar SP0724)
     -1x Red Snap Action Keyboard Switch - PCB Mount (Jaycar SP0720)
+    -6x 6.35mm Adhesive PCB Standoffs - (Jaycar HP0760)
 
   ## Usage
 
