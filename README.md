@@ -71,7 +71,7 @@
       * Wire out+ of DC buck converter module to VIN pin of Arduino Nano 
 
 
-  ## Usage
+  ## Usage:
     - To compile code you must comment in the voltage lines {right before void setup()} and set the voltage to your batteries chemistry
     - Max Voltage appears to be 57.3 with the R4850G2 becoming unstable above that value
     -TODO
@@ -83,6 +83,6 @@
     [r4850g2_pcb.jpg](https://github.com/bbobkins/r4850g2_arduino/blob/main/r4850g2_pcb.jpg)
 
 
-  ## PINOUT
+  ## PINOUT:
   See:
   -[r4850g2_arduino.png](https://github.com/bbobkins/r4850g2_arduino/blob/main/r4850g2_arduino.png)
