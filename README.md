@@ -17,7 +17,7 @@
     - Simplified implimentation and use
 
   ## Todo:
-    - Add menu item to change voltage also, hard coded for now 
+    - Add rampdown as current reduces went batteries approach charge, a large load in that state can bog down the generator
   
   ## Requirements:
    - this has been tested with an Arduino Nano Only
@@ -72,10 +72,15 @@
 
 
   ## Usage:
-    - To compile code you must comment in the voltage lines {right before void setup()} and set the voltage to your batteries chemistry
+    - Set current using red or green buttons
+    - Set Max Voltage by holding both buttons until menu is displayed then only hold 1 of the buttons to set value
+    - Settings are stored in EEPROM and will survive power cycles
     - Max Voltage appears to be 57.3 with the R4850G2 becoming unstable above that value
-    -TODO
-      *complete this
+
+    
+
+   ## Troubleshooting:
+    - No CAN input detected: check Jumper J1 is installed on CAN Module, check wireing to R4850G2
 
       
   ## PICTURES:
