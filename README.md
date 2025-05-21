@@ -79,7 +79,8 @@
 
       
   ## PICTURES:
-    TODO
+  PCB Example:
+    [r4850g2_pcb.jpg](https://github.com/bbobkins/r4850g2_arduino/blob/main/r4850g2_pcb.jpg)
 
 
   ## PINOUT
