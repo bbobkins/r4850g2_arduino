@@ -46,21 +46,21 @@
       * Drill 6x 4mm holes for PCB standoffs (2mm for accuracy)
       * repair the power rails with bodge wires if damaged by drilling
     - Nano:
-      * Wire GND to ground (Inner) rail of PCB 
-      * Wire 5V to power (outer) rail of PCB 
+      * Wire GND to ground (Inner)  PCB rail 
+      * Wire 5V to power (outer)  PCB rail
     - Switches:
-      * Place switches on PCB under the oled with half the legs on the ground (Inner) rail
+      * Place switches on PCB under the oled with half the legs on the ground (Inner)  PCB rail
       * Wire the red switch to Nano D4
       * Wire the green switch to Nano D3
     - Display:
-      * Wire GND to ground rail
-      * Wire VCC to power rail
+      * Wire GND to ground PCB rail
+      * Wire VCC to power PCB rail
       * Wire SCL to Nano A5
       * Wire SDA to Nano A4
     - Can Module:
       * Install jumper on J1 of can bus module
-      * Wire GND to ground rail
-      * Wire VCC to power rail
+      * Wire GND to ground  PCB rail
+      * Wire VCC to power  PCB rail
       * Wire CS to Nano D10
       * Wire S0 to Nano D12
       * Wire SI to Nano D11
@@ -68,7 +68,7 @@
       * Wire INT to Nano D2
     - Optional Power module:
       * Set output voltage of DC buck converter module to around 10v (7-12v)
-      * Wire out- of DC buck converter module to ground (Inner) rail
+      * Wire out- of DC buck converter module to ground (Inner)  PCB rail
       * Wire out+ of DC buck converter module to VIN pin of Arduino Nano 
 
 
