@@ -13,6 +13,7 @@
     - Still works well with grid power
     - Removed stuipd click encoder and menu libraries freeing up much memory!!
     - Settings are saved in EEprom memory and persist
+    - if nano reboots code allows for then r4850g2 to simply continue on
     - CAN side of things mostly unchanged
     - Simplified implimentation and use
 
