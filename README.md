@@ -17,7 +17,8 @@
     - Simplified implimentation and use
 
   ## Todo:
-    - Add rampdown as current reduces went batteries approach charge, a large load in that state can bog down the generator
+    - Add generator cooldawn mode
+    - Add parameter for how agressive the ramp up/down should be
   
   ## Requirements:
    - this has been tested with an Arduino Nano Only
@@ -75,9 +76,14 @@
     - Set current using red or green buttons
     - Set Max Voltage by holding both buttons until menu is displayed then only hold 1 of the buttons to set value
     - Settings are stored in EEPROM and will survive power cycles
+    - If the nano is rebooted it will get data from the R4850G2 and continue on as if nothing happened
     - Max Voltage appears to be 57.3 with the R4850G2 becoming unstable above that value
 
-    
+  ## Unit test:
+    -this is display only no R4850G2 code needed, just basic logic tests
+    -Will go through what should be a standard charge cycle from battery empty to full, back to empty
+    -Then will go through many of the exceptons that generly wont be encountered but exercises the behaviour if it does
+      
 
    ## Troubleshooting:
     - No CAN input detected: check Jumper J1 is installed on CAN Module, check wireing to R4850G2
