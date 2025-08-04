@@ -17,7 +17,7 @@
     - Simplified implimentation and use
 
   ## Todo:
-    - Add generator cooldawn mode
+    - Add generator cooldown mode
     - Add parameter for how agressive the ramp up/down should be
   
   ## Requirements:
