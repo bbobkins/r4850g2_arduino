@@ -44,6 +44,7 @@
 
   ## Build Instructions:
     - PCB Prep:
+      * NOTE: board has missing holes on the rail on one side, that side should become the top to allow buttons
       * Drill 6x 4mm holes for PCB standoffs (2mm for accuracy)
       * repair the power rails with bodge wires if damaged by drilling
     - Nano:
