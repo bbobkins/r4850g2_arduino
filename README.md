@@ -45,7 +45,8 @@
 
     Cable
     -1m of Red and Black DC cable capable of 55A of current at 48V
-    -Lugs/bolts/washers/nuts for the DC cable side of things
+    -The DC plug on the far end that plugs into whatever it is your plugging this thing into... Anderson plug?
+    -Lugs/bolts/washers/nuts for the DC cable module adapter side of things
     -1-2m of AC cable with the appropriate AC plug on the end, sized for 3000w 240v or 1500w 120v
     -Jumper wire 
     -1-3m twin (twisted pair?) data cable for CAN to run between module cable adapter and board
