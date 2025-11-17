@@ -9,17 +9,17 @@
 
   ## Goals:
     - Generator friendly with slow current ramp up & ramp down!!
-    - Allows generators to remain on ECO mode and prevents bogdown and over current trips
+    - Allows generators to remain on ECO mode and prevents bog-down and over current trips
     - Still works well with grid power
-    - Removed stuipd click encoder and menu libraries freeing up much memory!!
+    - Removed stupid click encoder and menu libraries freeing up much memory!!
     - Settings are saved in EEprom memory and persist
     - if nano reboots code allows for then r4850g2 to simply continue on
     - CAN side of things mostly unchanged
-    - Simplified implimentation and use
+    - Simplified implementation and use
 
   ## Todo:
-    - Add generator cooldown mode
-    - Add parameter for how agressive the ramp up/down should be
+    - bug fixes and polish
+
   
   ## Requirements:
    - this has been tested with an Arduino Nano Only
@@ -31,7 +31,8 @@
       * SSD1306Ascii.h - SSD1306Ascii by Bill Geriman
          https://github.com/greiman/SSD1306Ascii
   ## Parts List:
-    
+
+    Board
     -1x Compatible Arduino Nano V3 16Mhz With Bootloader
     -1x MCP2515 CAN Controller Bus Module TJA1050 Receiver SPI for Arduino
     -1x 2.54mm Jumper for Pin Header/Circuit Board 
@@ -41,6 +42,17 @@
     -1x Red Snap Action Keyboard Switch - PCB Mount (Jaycar SP0720)
     -6x 6.35mm Adhesive PCB Standoffs - (Jaycar HP0760)
     -(OPTIONAL) DC-DC Buck Step Down Adjustable Converter 4.5-60V input to 3-32v out
+
+    Cable
+    -1m of Red and Black DC cable capable of 55A of current at 48V
+    -Lugs/bolts/washers/nuts for the DC cable side of things
+    -1-2m of AC cable with the appropriate AC plug on the end, sized for 3000w 240v or 1500w 120v
+    -Jumper wire 
+    -1-3m twin (twisted pair?) data cable for CAN to run between module cable adapter and board
+
+    Module
+    -Huawai R4850G2 rectifier module
+    -Huawai R4850G2 cable adapter
 
   ## Build Instructions:
     - PCB Prep:
@@ -72,8 +84,12 @@
       * Set output voltage of DC buck converter module to around 10v (7-12v)
       * Wire out- of DC buck converter module to ground (Inner)  PCB rail
       * Wire out+ of DC buck converter module to VIN pin of Arduino Nano 
-
-
+    - Cable adapter - Cable:
+      * Connect DC cables (red and black) to R4850G2 cable adapter ensuring correct polarity
+      * Connect AC cables R4850G2 cable adapter ensuring correct wiring of Live, Neutral and Ground
+      * The female data connector (black and white wires), both wires need to be connected to DC Negative using jumper wires (sets the modules mode)
+      * The male data connector (other set of black and white wires) is CAN LOW and CAN HIGH and a twin data cable runs from here to the CAN module on the board
+      
   ## Usage:
     - Set current using red or green buttons
     - Set Max Voltage by holding both buttons until menu is displayed then only hold 1 of the buttons to set value
@@ -84,11 +100,11 @@
   ## Unit test:
     -this is display only no R4850G2 code needed, just basic logic tests
     -Will go through what should be a standard charge cycle from battery empty to full, back to empty
-    -Then will go through many of the exceptons that generly wont be encountered but exercises the behaviour if it does
+    -Then will go through many of the exceptions that generally wont be encountered but exercises the behaviour if it does
       
 
    ## Troubleshooting:
-    - No CAN input detected: check Jumper J1 is installed on CAN Module, check wireing to R4850G2
+    - No CAN input detected: check Jumper J1 is installed on CAN Module, check wiring to R4850G2
 
       
   ## PICTURES:
