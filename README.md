@@ -106,7 +106,8 @@
 
    ## Troubleshooting:
     - No CAN input detected: check Jumper J1 is installed on CAN Module, check wiring to R4850G2
-
+    - CAN err:  check CAN High and CAN Low are around the correct way
+    - Always float no charge: hold down both green and red buttons to set the charge voltage higher
       
   ## PICTURES:
   PCB Example:
